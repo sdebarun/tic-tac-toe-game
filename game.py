@@ -18,16 +18,17 @@ def selectingPosition():
 	position = 'string'
 	while not position.isdigit():
 		position = input("select the position for the input:");	
-		print("please enter a numeric figure (e.g, 1) : ")
+		if not position.isdigit():
+			print("please enter a numeric figure (e.g, 1) : ")
 	return int(position)
 #function to get the user input
 def userInput():
 	userInput = ""
 	allowedInputs = ["O","X"]
-	while userInput not in allowedInputs : 
+	while userInput.capitalize() not in allowedInputs : 
 		userInput = input("please enter your prefer mark (O/X) : ")
-		userInput = userInput.capitalize()
-		print("please enter from allowed ones (O/X)")
+		if userInput.capitalize() not in allowedInputs:
+			print("please enter from allowed ones (O/X)")
 		
 	return userInput.capitalize()
 
@@ -41,4 +42,4 @@ selectedPosition = selectingPosition()
 userInput = userInput()
 
 #just a notice
-print(f"Notice: the {selectedPosition} from the board will be updaetd with {userInput}")
+print(f"Notice: the {selectedPosition} position from the board will be updaetd with {userInput}")
