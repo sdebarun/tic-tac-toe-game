@@ -68,12 +68,12 @@ while  userLikesToCont:
 	#get the position from user
 	selectedPosition = selectingPosition()
 	#get the user input for that postion
-	userInput = userInput()
+	user_input = userInput()
 	#update the gameboard with user input and position
-	updateGameBoard(selectedPosition,userInput)
+	updateGameBoard(selectedPosition,user_input)
 	#display the updated game board and ask to choose again
 	renderGameBoard(gameBoardListRow1,gameBoardListRow2,gameBoardListRow3)
 	#ask user if he wants to continue
 	userLikesToCont = gameContinue()
 #just a notice
-print(f"Notice: position {selectedPosition} from the board will be updaetd with {userInput}")
+# print(f"Notice: position {selectedPosition} from the board will be updaetd with {userInput}")
