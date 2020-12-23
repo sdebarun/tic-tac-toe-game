@@ -1,6 +1,7 @@
 #basic rendering the game board
-gameBoardList = ['','','']
-
+gameBoardListRow1 = ['','','']
+gameBoardListRow2 = ['','','']
+gameBoardListRow3 = ['','','']
 # function to ask user to provide the row count
 def userGivenRowNo():
 	#asking user to deciede the size of the game board
@@ -12,6 +13,11 @@ def gameBoardView(rows,gameList):
 	while noOfRow <= rows:
 		print(gameList)
 		noOfRow = noOfRow + 1
+#static game board rendering
+def renderGameBoard(firstRow,secondRow,ThirdRow):
+	print(gameBoardListRow1)
+	print(gameBoardListRow1)
+	print(gameBoardListRow1)
 
 #function to ask the user to select the position for his input
 def selectingPosition():
@@ -31,15 +37,21 @@ def userInput():
 			print("please enter from allowed ones (O/X)")
 		
 	return userInput.capitalize()
+#function to update the game board
+#def updateGameBoard(position,value):
 
+	
 #calling the functions
-rowCount = userGivenRowNo()
+# rowCount = userGivenRowNo()
 #initial empty game board view
-gameBoardView(rowCount,gameBoardList)
+renderGameBoard(gameBoardListRow1,gameBoardListRow2,gameBoardListRow3);
+# gameBoardView(rowCount,gameBoardList)
 #get the position from user
 selectedPosition = selectingPosition()
 #get the user input for that postion
 userInput = userInput()
+#update the gameboard with user input and position
+#display the updated game board and ask to choose again
 
 #just a notice
-print(f"Notice: the {selectedPosition} position from the board will be updaetd with {userInput}")
+print(f"Notice: position {selectedPosition} from the board will be updaetd with {userInput}")
