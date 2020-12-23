@@ -16,8 +16,8 @@ def gameBoardView(rows,gameList):
 #static game board rendering
 def renderGameBoard(firstRow,secondRow,ThirdRow):
 	print(gameBoardListRow1)
-	print(gameBoardListRow1)
-	print(gameBoardListRow1)
+	print(gameBoardListRow2)
+	print(gameBoardListRow3)
 
 #function to ask the user to select the position for his input
 def selectingPosition():
@@ -38,20 +38,32 @@ def userInput():
 		
 	return userInput.capitalize()
 #function to update the game board
-#def updateGameBoard(position,value):
+def updateGameBoard(position,value):
+	if(position <= 3):
+		gameBoardListRow1[position-1] = value
+	elif(position >3 and position <= 6):
+		gameBoardListRow2[position-4] = value
+	elif(position > 6 and position <= 9):
+		gameBoardListRow3[position-7] = value
+	else:
+		print("I did not understand! something went wrong!!")
 
 	
 #calling the functions
 # rowCount = userGivenRowNo()
+
 #initial empty game board view
-renderGameBoard(gameBoardListRow1,gameBoardListRow2,gameBoardListRow3);
+renderGameBoard(gameBoardListRow1,gameBoardListRow2,gameBoardListRow3)
 # gameBoardView(rowCount,gameBoardList)
+
 #get the position from user
 selectedPosition = selectingPosition()
 #get the user input for that postion
 userInput = userInput()
 #update the gameboard with user input and position
+updateGameBoard(selectedPosition,userInput)
 #display the updated game board and ask to choose again
+renderGameBoard(gameBoardListRow1,gameBoardListRow2,gameBoardListRow3)
 
 #just a notice
 print(f"Notice: position {selectedPosition} from the board will be updaetd with {userInput}")
