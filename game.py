@@ -50,6 +50,7 @@ def updateGameBoard(position,value):
 
 #function to continue or end the game
 def gameContinue():
+	userAns = "Y"
 	userAns = input("Would you like to continue (Y/N)?")
 	if(userAns.capitalize() == "N"):
 		print("Goodbye!! Hope you enjoyed the game")
@@ -57,21 +58,22 @@ def gameContinue():
 	else:
 		return True
 #calling the functions
-# rowCount = userGivenRowNo()
+userLikesToCont = True 
+while  userLikesToCont:
+	#rowCount = userGivenRowNo()
+	#initial empty game board view
+	renderGameBoard(gameBoardListRow1,gameBoardListRow2,gameBoardListRow3)
+	# gameBoardView(rowCount,gameBoardList)
 
-#initial empty game board view
-renderGameBoard(gameBoardListRow1,gameBoardListRow2,gameBoardListRow3)
-# gameBoardView(rowCount,gameBoardList)
-
-#get the position from user
-selectedPosition = selectingPosition()
-#get the user input for that postion
-userInput = userInput()
-#update the gameboard with user input and position
-updateGameBoard(selectedPosition,userInput)
-#display the updated game board and ask to choose again
-renderGameBoard(gameBoardListRow1,gameBoardListRow2,gameBoardListRow3)
-#ask user if he wants to continue
-print(gameContinue())
+	#get the position from user
+	selectedPosition = selectingPosition()
+	#get the user input for that postion
+	userInput = userInput()
+	#update the gameboard with user input and position
+	updateGameBoard(selectedPosition,userInput)
+	#display the updated game board and ask to choose again
+	renderGameBoard(gameBoardListRow1,gameBoardListRow2,gameBoardListRow3)
+	#ask user if he wants to continue
+	userLikesToCont = gameContinue()
 #just a notice
 print(f"Notice: position {selectedPosition} from the board will be updaetd with {userInput}")
