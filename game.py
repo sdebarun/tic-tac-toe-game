@@ -48,7 +48,14 @@ def updateGameBoard(position,value):
 	else:
 		print("I did not understand! something went wrong!!")
 
-	
+#function to continue or end the game
+def gameContinue():
+	userAns = input("Would you like to continue (Y/N)?")
+	if(userAns.capitalize() == "N"):
+		print("Goodbye!! Hope you enjoyed the game")
+		return False
+	else:
+		return True
 #calling the functions
 # rowCount = userGivenRowNo()
 
@@ -64,6 +71,7 @@ userInput = userInput()
 updateGameBoard(selectedPosition,userInput)
 #display the updated game board and ask to choose again
 renderGameBoard(gameBoardListRow1,gameBoardListRow2,gameBoardListRow3)
-
+#ask user if he wants to continue
+print(gameContinue())
 #just a notice
 print(f"Notice: position {selectedPosition} from the board will be updaetd with {userInput}")
