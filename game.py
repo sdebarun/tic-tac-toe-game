@@ -2,17 +2,7 @@
 gameBoardListRow1 = ['','','']
 gameBoardListRow2 = ['','','']
 gameBoardListRow3 = ['','','']
-# function to ask user to provide the row count
-def userGivenRowNo():
-	#asking user to deciede the size of the game board
-	userProvidedRowsCount = input("Please enter the row number : ")
-	return int(userProvidedRowsCount)
-#function to visualize the game board	
-def gameBoardView(rows,gameList):
-	noOfRow = 1;
-	while noOfRow <= rows:
-		print(gameList)
-		noOfRow = noOfRow + 1
+
 #static game board rendering
 def renderGameBoard(firstRow,secondRow,ThirdRow):
 	print(gameBoardListRow1)
@@ -27,6 +17,7 @@ def selectingPosition():
 		if not position.isdigit():
 			print("please enter a numeric figure (e.g, 1) : ")
 	return int(position)
+
 #function to get the user input
 def userInput():
 	userInput = ""
@@ -37,6 +28,7 @@ def userInput():
 			print("please enter from allowed ones (O/X)")
 		
 	return userInput.capitalize()
+
 #function to update the game board
 def updateGameBoard(position,value):
 	if(position <= 3):
@@ -57,14 +49,12 @@ def gameContinue():
 		return False
 	else:
 		return True
+		
 #calling the functions
 userLikesToCont = True 
 while  userLikesToCont:
-	#rowCount = userGivenRowNo()
 	#initial empty game board view
 	renderGameBoard(gameBoardListRow1,gameBoardListRow2,gameBoardListRow3)
-	# gameBoardView(rowCount,gameBoardList)
-
 	#get the position from user
 	selectedPosition = selectingPosition()
 	#get the user input for that postion
@@ -75,5 +65,4 @@ while  userLikesToCont:
 	renderGameBoard(gameBoardListRow1,gameBoardListRow2,gameBoardListRow3)
 	#ask user if he wants to continue
 	userLikesToCont = gameContinue()
-#just a notice
-# print(f"Notice: position {selectedPosition} from the board will be updaetd with {userInput}")
+#end of while loop
