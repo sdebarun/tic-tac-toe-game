@@ -1,15 +1,13 @@
-listRow1 = [' ',' ',' ']
-listRow2 = [' ',' ',' ']
-listRow3 = [' ',' ',' ']
+#basic rendering the game board
+gameBoardListRow1 = ['','','']
+gameBoardListRow2 = ['','','']
+gameBoardListRow3 = ['','','']
 
-
-def  renderGameBoard(listRow1,listRow2,listRow3):
-	print(f"| {listRow1[0]} | {listRow1[1]} | {listRow1[2]} |")
-	print('|___|___|___|')
-	print(f"| {listRow2[0]} | {listRow2[1]} | {listRow3[2]} |")
-	print('|___|___|___|')
-	print(f"| {listRow3[0]} | {listRow3[1]} | {listRow3[2]} |")
-	print('|   |   |   |')
+#static game board rendering
+def renderGameBoard(firstRow,secondRow,ThirdRow):
+	print(gameBoardListRow1)
+	print(gameBoardListRow2)
+	print(gameBoardListRow3)
 
 #function to ask the user to select the position for his input
 def selectingPosition():
@@ -34,11 +32,11 @@ def userInput():
 #function to update the game board
 def updateGameBoard(position,value):
 	if(position <= 3):
-		listRow1[position-1] = value
+		gameBoardListRow1[position-1] = value
 	elif(position >3 and position <= 6):
-		listRow2[position-4] = value
+		gameBoardListRow2[position-4] = value
 	elif(position > 6 and position <= 9):
-		listRow3[position-7] = value
+		gameBoardListRow3[position-7] = value
 	else:
 		print("I did not understand! something went wrong!!")
 
@@ -56,7 +54,7 @@ def gameContinue():
 userLikesToCont = True 
 while  userLikesToCont:
 	#initial empty game board view
-	renderGameBoard(listRow1,listRow2,listRow3)
+	renderGameBoard(gameBoardListRow1,gameBoardListRow2,gameBoardListRow3)
 	#get the position from user
 	selectedPosition = selectingPosition()
 	#get the user input for that postion
@@ -64,7 +62,7 @@ while  userLikesToCont:
 	#update the gameboard with user input and position
 	updateGameBoard(selectedPosition,user_input)
 	#display the updated game board and ask to choose again
-	renderGameBoard(listRow1,listRow2,listRow3)
+	renderGameBoard(gameBoardListRow1,gameBoardListRow2,gameBoardListRow3)
 	#ask user if he wants to continue
 	userLikesToCont = gameContinue()
 #end of while loop
