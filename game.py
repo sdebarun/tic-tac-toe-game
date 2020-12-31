@@ -53,7 +53,7 @@ def gameContinue():
 		return True
 
 # winning sceanrio handling
-def declareWinnerByRow(markedlist):
+def declareWinner(markedlist):
 	#if one row has all the elements same
 	if(' ' not in markedlist) :
 		single_row = len(set(markedlist));
@@ -63,10 +63,13 @@ def declareWinnerByRow(markedlist):
 			return False		
 
 #if diagoanls are same
-def diagoanlWinningCheck(listrow1,listrow2,listrow3):
+def elementEqualityCheck(listrow1,listrow2,listrow3):
 	first_diagoanal_list = [listrow1[0],listrow2[1],listrow3[2]]
-	second_diagonal_list = [listrow3[0],listrow2[1],listrow1[2]]
-	if(declareWinnerByRow(first_diagoanal_list) or declareWinnerByRow(second_diagonal_list)) : 
+	second_diagonal_list =[listrow3[0],listrow2[1],listrow1[2]]
+	zeroth_column = [listrow1[0],listrow2[0],listrow3[0]]
+	first_column = [listrow1[1],listrow2[1],listrow3[1]]
+	second_column = [listrow1[2],listrow2[2],listrow3[2]]
+	if(declareWinner(first_diagoanal_list) or declareWinner(second_diagonal_list) or declareWinner(zeroth_column) or declareWinner(first_column) or declareWinner(second_column)) : 
 		return True
 	else : 
 		False	
@@ -83,18 +86,18 @@ while  userLikesToCont:
 	updateGameBoard(selectedPosition,user_input)
 	#display the updated game board and ask to choose again
 	renderGameBoard(listRow1,listRow2,listRow3)
-	if(declareWinnerByRow(listRow1)) :
+	if(declareWinner(listRow1)) :
 		userLikesToCont = False
-		print("Game won!");
-	elif (declareWinnerByRow(listRow2)):
+		print("Game won horizontal!");
+	elif (declareWinner(listRow2)):
 		userLikesToCont = False
-		print("Game won!");
-	elif (declareWinnerByRow(listRow3)):
+		print("Game won horizontal!");
+	elif (declareWinner(listRow3)):
 		userLikesToCont = False
-		print("Game won!");
-	elif (diagoanlWinningCheck(listRow1,listRow2,listRow3)) :
+		print("Game won horizontal!");
+	elif (elementEqualityCheck(listRow1,listRow2,listRow3)) :
 		userLikesToCont = False
-		print("Game won by diagonal!");	
+		print("Game won by vertical!");	
 	else :
 		#ask user if he wants to continue
 		userLikesToCont = gameContinue()				
