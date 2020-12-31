@@ -79,11 +79,11 @@ while  userLikesToCont:
 	#initial empty game board view
 	renderGameBoard(listRow1,listRow2,listRow3)
 	#get the position from user
-	selectedPosition = selectingPosition()
+	selected_position = selectingPosition()
 	#get the user input for that postion
 	user_input = userInput()
 	#update the gameboard with user input and position
-	updateGameBoard(selectedPosition,user_input)
+	updateGameBoard(selected_position,user_input)
 	#display the updated game board and ask to choose again
 	renderGameBoard(listRow1,listRow2,listRow3)
 	if(declareWinner(listRow1)) :
