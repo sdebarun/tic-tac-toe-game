@@ -51,7 +51,18 @@ def gameContinue():
 		return False
 	else:
 		return True
-		
+
+# winning sceanrio handling
+def declareWinner(markedlist):
+	#if one row has all the elements same
+	if(' ' not in markedlist) :
+		single_row = len(set(markedlist));
+		if(single_row == 1):
+			return True
+		else:
+			return False		
+
+	#if diagoanls are same	
 #calling the functions
 userLikesToCont = True 
 while  userLikesToCont:
@@ -65,6 +76,17 @@ while  userLikesToCont:
 	updateGameBoard(selectedPosition,user_input)
 	#display the updated game board and ask to choose again
 	renderGameBoard(listRow1,listRow2,listRow3)
-	#ask user if he wants to continue
-	userLikesToCont = gameContinue()
+	if(declareWinner(listRow1)) :
+		userLikesToCont = False
+		print("Game won!");
+	elif (declareWinner(listRow2)):
+		userLikesToCont = False
+		print("Game won!");
+	elif (declareWinner(listRow3)):
+		userLikesToCont = False
+		print("Game won!");
+	else :
+		#ask user if he wants to continue
+		userLikesToCont = gameContinue()				
+	
 #end of while loop
