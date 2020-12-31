@@ -6,7 +6,7 @@ listRow3 = [' ',' ',' ']
 def  renderGameBoard(listRow1,listRow2,listRow3):
 	print(f"| {listRow1[0]} | {listRow1[1]} | {listRow1[2]} |")
 	print('|___|___|___|')
-	print(f"| {listRow2[0]} | {listRow2[1]} | {listRow3[2]} |")
+	print(f"| {listRow2[0]} | {listRow2[1]} | {listRow2[2]} |")
 	print('|___|___|___|')
 	print(f"| {listRow3[0]} | {listRow3[1]} | {listRow3[2]} |")
 	print('|   |   |   |')
@@ -62,7 +62,13 @@ def declareWinnerByRow(markedlist):
 		else:
 			return False		
 
-	#if diagoanls are same	
+#if diagoanls are same
+def diagoanlWinningCheck(listrow1,listrow2,listrow3):
+	diagoanal_list =[listrow1[0],listrow2[1],listrow3[2]]
+	if(declareWinnerByRow(diagoanal_list)) : 
+		return True
+	else : 
+		False	
 #calling the functions
 userLikesToCont = True 
 while  userLikesToCont:
@@ -85,6 +91,9 @@ while  userLikesToCont:
 	elif (declareWinnerByRow(listRow3)):
 		userLikesToCont = False
 		print("Game won!");
+	elif (diagoanlWinningCheck(listRow1,listRow2,listRow3)) :
+		userLikesToCont = False
+		print("Game won by first diagonal!");	
 	else :
 		#ask user if he wants to continue
 		userLikesToCont = gameContinue()				
