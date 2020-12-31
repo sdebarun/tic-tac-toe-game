@@ -45,7 +45,7 @@ def updateGameBoard(position,value):
 #function to continue or end the game
 def gameContinue():
 	userAns = "Y"
-	userAns = input("Would you like to continue (Y/N)?")
+	userAns = input("Would you like to continue (Y/N), defaults Y?")
 	if(userAns.capitalize() == "N"):
 		print("Goodbye!! Hope you enjoyed the game")
 		return False
