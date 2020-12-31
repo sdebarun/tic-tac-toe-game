@@ -64,8 +64,9 @@ def declareWinnerByRow(markedlist):
 
 #if diagoanls are same
 def diagoanlWinningCheck(listrow1,listrow2,listrow3):
-	diagoanal_list =[listrow1[0],listrow2[1],listrow3[2]]
-	if(declareWinnerByRow(diagoanal_list)) : 
+	first_diagoanal_list = [listrow1[0],listrow2[1],listrow3[2]]
+	second_diagonal_list = [listrow3[0],listrow2[1],listrow1[2]]
+	if(declareWinnerByRow(first_diagoanal_list) or declareWinnerByRow(second_diagonal_list)) : 
 		return True
 	else : 
 		False	
@@ -93,7 +94,7 @@ while  userLikesToCont:
 		print("Game won!");
 	elif (diagoanlWinningCheck(listRow1,listRow2,listRow3)) :
 		userLikesToCont = False
-		print("Game won by first diagonal!");	
+		print("Game won by diagonal!");	
 	else :
 		#ask user if he wants to continue
 		userLikesToCont = gameContinue()				
