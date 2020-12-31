@@ -88,16 +88,16 @@ while  userLikesToCont:
 	renderGameBoard(listRow1,listRow2,listRow3)
 	if(declareWinner(listRow1)) :
 		userLikesToCont = False
-		print("Game won horizontal!");
+		print("Game won!!");
 	elif (declareWinner(listRow2)):
 		userLikesToCont = False
-		print("Game won horizontal!");
+		print("Game won!!");
 	elif (declareWinner(listRow3)):
 		userLikesToCont = False
-		print("Game won horizontal!");
+		print("Game won!!");
 	elif (elementEqualityCheck(listRow1,listRow2,listRow3)) :
 		userLikesToCont = False
-		print("Game won by vertical!");	
+		print("Game won!!");	
 	else :
 		#ask user if he wants to continue
 		userLikesToCont = gameContinue()				
