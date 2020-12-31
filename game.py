@@ -53,7 +53,7 @@ def gameContinue():
 		return True
 
 # winning sceanrio handling
-def declareWinner(markedlist):
+def declareWinnerByRow(markedlist):
 	#if one row has all the elements same
 	if(' ' not in markedlist) :
 		single_row = len(set(markedlist));
@@ -76,13 +76,13 @@ while  userLikesToCont:
 	updateGameBoard(selectedPosition,user_input)
 	#display the updated game board and ask to choose again
 	renderGameBoard(listRow1,listRow2,listRow3)
-	if(declareWinner(listRow1)) :
+	if(declareWinnerByRow(listRow1)) :
 		userLikesToCont = False
 		print("Game won!");
-	elif (declareWinner(listRow2)):
+	elif (declareWinnerByRow(listRow2)):
 		userLikesToCont = False
 		print("Game won!");
-	elif (declareWinner(listRow3)):
+	elif (declareWinnerByRow(listRow3)):
 		userLikesToCont = False
 		print("Game won!");
 	else :
